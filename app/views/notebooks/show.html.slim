@@ -1,0 +1,17 @@
+table.table.table-striped
+  tr
+    th Name:
+    td= @notebook.name
+  tr
+    th Ancestry:
+    td= @notebook.ancestry
+  tr
+    th User:
+    td= @notebook.user
+  tr
+    th Visibility:
+    td= @notebook.visibility
+
+.btn-group
+  = link_to "Edit", edit_notebook_path(@notebook), class: "btn btn-default"
+  = link_to "Back", notebooks_path, class: "btn btn-default"

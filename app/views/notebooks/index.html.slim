@@ -1,0 +1,29 @@
+h1 
+  | Notebooks
+  '
+  = link_to "New Notebook", new_notebook_path, class: "btn btn-primary"
+
+table.table.table-striped
+  thead
+    tr
+      th Name
+      th Ancestry
+      th User
+      th Visibility
+      th
+      th
+      
+  tbody
+    - @notebooks.each do |notebook|
+      tr
+        td= notebook.name
+        td= notebook.ancestry
+        td= notebook.user
+        td= notebook.visibility
+        td= link_to "Show", notebook
+        td
+          = link_to "Edit", edit_notebook_path(notebook)
+          '
+          |/
+          '
+          = link_to "Destroy", notebook, method: :delete, data: { confirm: "Are you sure?" }

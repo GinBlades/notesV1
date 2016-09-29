@@ -1,2 +1,4 @@
-h1 Pages#home
-p Find me in app/views/pages/home.html.slim
+- if user_signed_in?
+  = render "notes"
+- else
+  = render "welcome"

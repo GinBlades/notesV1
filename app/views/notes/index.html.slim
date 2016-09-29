@@ -1,0 +1,29 @@
+h1 
+  | Notes
+  '
+  = link_to "New Note", new_note_path, class: "btn btn-primary"
+
+table.table.table-striped
+  thead
+    tr
+      th Notebook
+      th Name
+      th Body
+      th Visibility
+      th
+      th
+      
+  tbody
+    - @notes.each do |note|
+      tr
+        td= note.notebook
+        td= note.name
+        td= note.body
+        td= note.visibility
+        td= link_to "Show", note
+        td
+          = link_to "Edit", edit_note_path(note)
+          '
+          |/
+          '
+          = link_to "Destroy", note, method: :delete, data: { confirm: "Are you sure?" }
