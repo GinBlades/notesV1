@@ -1,0 +1,19 @@
+{
+  "js": {
+    "vendor": [
+      "bower_components/jquery/dist/jquery.min.js",
+      "bower_components/angular/angular.min.js",
+      "bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"
+    ],
+    "maps": [
+      "jquery/dist/jquery.min.map",
+      "angular/angular.min.js.map"
+    ],
+    "app": [
+      "ts/**/*.ts"
+    ]
+  },
+  "fonts": [
+    "bower_components/bootstrap-sass/assets/fonts/bootstrap/*.*"
+  ]
+}
