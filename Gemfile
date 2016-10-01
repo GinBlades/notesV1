@@ -2,11 +2,6 @@ source "https://rubygems.org"
 
 gem "rails", "~> 5.0.0"
 gem "pg"
-gem "uglifier"
-gem "coffee-rails"
-gem "jquery-rails"
-gem "sass-rails"
-gem "turbolinks"
 gem "puma"
 
 group :development, :test do
@@ -30,10 +25,7 @@ group :development do
   gem "simplecov", require: false
 end
 
-gem "bootstrap-sass"
-gem "autoprefixer-rails"
 gem "simple_form"
-gem "modernizr-rails"
 gem "slim-rails"
 gem "mina"
 gem "devise"
