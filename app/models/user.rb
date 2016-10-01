@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable, :omniauthable
   enum role: [:guest, :member, :manager, :admin]
+
+  has_many :notebooks
+  has_many :notes, through: :notebooks
 end

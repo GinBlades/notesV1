@@ -3,9 +3,19 @@
     .panel.panel-default
       .panel-heading
         h3.panel-title Recent Notes
+      .panel-body
+        = link_to new_note_path do
+          span.glyphicon.glyphicon-plus-sign
+          '
+          | Create Note
     .panel.panel-default
       .panel-heading
         h3.panel-title Notebooks
+      .panel-body
+        = link_to new_notebook_path do
+          span.glyphicon.glyphicon-plus-sign
+          '
+          | Create Notebook
   .col-md-9
     .row
       .col-md-12

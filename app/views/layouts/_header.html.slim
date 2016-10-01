@@ -8,11 +8,13 @@ nav.navbar.navbar-inverse role="navigation"
         span.icon-bar
       = link_to 'Notes', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse#navbar-collapse
-      ul.nav.navbar-nav
-        li = link_to 'Link', '#'
-        li = link_to 'Link', '#'
+      /
+        ul.nav.navbar-nav
+          li = link_to 'Link', '#'
+          li = link_to 'Link', '#'
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
+          li = link_to 'Profile', profile_path(current_user)
           li = link_to 'Sign out', destroy_user_session_path, method: :delete
         - else
           li = link_to 'Sign in', new_user_session_path
