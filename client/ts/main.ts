@@ -1,2 +1,9 @@
 /// <reference path="../typings/index.d.ts" />
-console.log("This is typescript");
+angular.module("notes", ["ngRoute", "templates"])
+    .config(($routeProvider) => {
+        $routeProvider
+            .when("/", {
+                templateUrl: "home.html"
+            })
+            .otherwise("/");
+    });

@@ -6,6 +6,8 @@ var gulp = require("gulp"),
     concat = require("gulp-concat"),
     sass = require("gulp-sass"),
     uglify = require("gulp-uglify"),
+    ngAnnotate = require("gulp-ng-annotate"),
+    templateCache = require("gulp-angular-templatecache"),
     jade = require("gulp-jade"),
     config = require("./assets.json");
 
@@ -14,6 +16,7 @@ gulp.task("tsc", () => {
         .pipe(plumber())
         .pipe(sourceMaps.init())
         .pipe(ts())
+        .pipe(ngAnnotate())
         .pipe(uglify())
         .pipe(concat("app.js"))
         .pipe(sourceMaps.write("."))
@@ -44,3 +47,20 @@ gulp.task("sass", () => {
         .pipe(sourceMaps.write("."))
         .pipe(gulp.dest("../public"));
 });
+
+gulp.task("jade", () => {
+    return gulp.src("./jade/**/*.jade")
+        .pipe(plumber())
+        .pipe(jade())
+        .pipe(templateCache({standalone: true}))
+        .pipe(gulp.dest("../public"));
+});
+
+gulp.task("watch", () => {
+    gulp.watch("./ts/**/*.ts", ["tsc"]);
+    gulp.watch("./sass/**/*.scss", ["sass"]);
+    gulp.watch("./jade/**/*.jade", ["jade"]);
+});
+
+gulp.task("init", ["vendorJs", "copyFonts", "copyMaps"]);
+gulp.task("default", ["watch", "tsc", "sass", "jade"]);
