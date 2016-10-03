@@ -1,5 +1,7 @@
 class HomeCtrl {
+    constructor(private User) {
 
+    }
 }
 
 angular.module("notes")
