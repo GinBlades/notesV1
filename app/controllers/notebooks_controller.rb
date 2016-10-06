@@ -44,6 +44,6 @@ class NotebooksController < ApplicationController
     end
 
     def notebook_params
-      params.require(:notebook).permit(:name, :ancestry, :user_id, :visibility)
+      params.require(:notebook).permit(:name, :description, :ancestry, :user_id, :visibility)
     end
 end
