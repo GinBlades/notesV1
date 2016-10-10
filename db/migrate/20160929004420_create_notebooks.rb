@@ -3,8 +3,8 @@ class CreateNotebooks < ActiveRecord::Migration[5.0]
     create_table :notebooks do |t|
       t.string :name, null: false
       t.string :ancestry
-      t.belongs_to :user, foreign_key: true
-      t.integer :visibility, default: 0
+      t.belongs_to :user, foreign_key: true, null: false
+      t.integer :visibility, default: 0, null: false
 
       t.timestamps
       t.index :ancestry

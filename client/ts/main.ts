@@ -5,5 +5,10 @@ angular.module("notes", ["ngRoute", "templates"])
             .when("/", {
                 templateUrl: "home.html"
             })
+            .when("/notes/new", {
+                templateUrl: "notes/new.html",
+                controller: "NewNote",
+                controllerAs: "ctrl"
+            })
             .otherwise("/");
     });

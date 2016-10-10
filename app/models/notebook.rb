@@ -5,4 +5,6 @@ class Notebook < ApplicationRecord
   has_many :notes
 
   enum visibility: [:from_parent, :secret, :friends, :open]
+
+  validates :name, :user_id, :visibility, null: false
 end

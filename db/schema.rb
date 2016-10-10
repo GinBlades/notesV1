@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20161005012433) do
   create_table "notebooks", force: :cascade do |t|
     t.string   "name",                    null: false
     t.string   "ancestry"
-    t.integer  "user_id"
-    t.integer  "visibility",  default: 0
+    t.integer  "user_id",                 null: false
+    t.integer  "visibility",  default: 0, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.string   "description"
@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 20161005012433) do
   end
 
   create_table "notes", force: :cascade do |t|
-    t.integer  "notebook_id"
+    t.integer  "notebook_id",             null: false
     t.string   "name",                    null: false
     t.string   "body"
-    t.integer  "visibility",  default: 0
+    t.integer  "visibility",  default: 0, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.string   "summary"
