@@ -18,6 +18,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
 
+    @note.default_notebook(current_user) if @note && @note.notebook_id.blank?
     if @note.save
       redirect_to @note, notice: 'Note was successfully created.'
     else
