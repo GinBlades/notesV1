@@ -10,5 +10,10 @@ angular.module("notes", ["ngRoute", "templates"])
                 controller: "NewNote",
                 controllerAs: "ctrl"
             })
+            .when("/notes/:id", {
+                templateUrl: "notes/show.html",
+                controller: "ShowNote",
+                controllerAs: "ctrl"
+            })
             .otherwise("/");
     });

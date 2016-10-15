@@ -6,13 +6,12 @@ interface INote {
 class NewNote {
     public newNote: INote;
 
-    constructor(private $http) {
+    constructor(private $http, private $location) {
     }
 
     public createNote() {
-        console.log(this.newNote);
         this.$http.post("/notes", this.newNote).then((result) => {
-            console.log(result);
+            this.$location.path("/");
         });
     }
 }
