@@ -1,8 +1,10 @@
 class NotesController < ApplicationController
+  before_action :set_policy
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :access, only: [:show, :edit, :update, :destroy]
 
   def index
-    @notes = Note.all
+    @notes = @policy.all
   end
 
   def show
@@ -46,5 +48,13 @@ class NotesController < ApplicationController
 
     def note_params
       params.require(:note).permit(:notebook_id, :name, :summary, :body, :visibility)
+    end
+
+    def set_policy
+      @policy = NotePolicy.new(current_user)
+    end
+
+    def access
+      render json: { errors: "This is not one of your notes.", status: 422 } unless @policy.visible?(@note)
     end
 end
