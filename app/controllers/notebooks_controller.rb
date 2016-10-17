@@ -1,8 +1,10 @@
 class NotebooksController < ApplicationController
+  before_action :set_policy
   before_action :set_notebook, only: [:show, :edit, :update, :destroy]
+  before_action :access, only: [:show, :edit, :update, :destroy]
 
   def index
-    @notebooks = Notebook.all
+    @notebooks = @policy.all
   end
 
   def show
@@ -45,5 +47,13 @@ class NotebooksController < ApplicationController
 
     def notebook_params
       params.require(:notebook).permit(:name, :description, :ancestry, :user_id, :visibility)
+    end
+
+    def set_policy
+      @policy = NotebookPolicy.new(current_user)
+    end
+
+    def access
+      render json: { errors: "This is not one of your notebooks.", status: 422 } unless @policy.visible?(@notebook)
     end
 end

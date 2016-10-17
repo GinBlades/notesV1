@@ -7,13 +7,17 @@
         a(href="#/notes/new")
           span.glyphicon.glyphicon-plus-sign
           |  Create Note
+        ul
+          li(ng-repeat="note in ctrl.notes") {{ note.name }}
     .panel.panel-default
       .panel-heading
         h3.panel-title Notebooks
       .panel-body
-        a(href="notebooks/new")
+        a(href="#/notebooks/new")
           span.glyphicon.glyphicon-plus-sign
           |  Create Notebook
+        ul
+          li(ng-repeat="notebook in ctrl.notebooks") {{ notebook.name }}
   .col-md-9
     .row
       .col-md-12
