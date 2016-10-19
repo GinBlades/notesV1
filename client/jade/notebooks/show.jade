@@ -1,0 +1,10 @@
+h1
+  | {{ ctrl.notebook.name }} 
+  .btn-group
+    a.btn.btn-default(ng-href="#/notebooks/{{ctrl.notebook.id}}/edit") Edit
+    a.btn.btn-danger(ng-click="ctrl.destroyNotebook()") Delete
+span.label.label-default {{ ctrl.notebook.visibility }}
+p {{ ctrl.notebook.description }}
+ul
+  li(ng-repeat="note in ctrl.notebook.notes")
+    a(ng-href="#/notes/{{note.id}}") {{ note.name }}

@@ -17,7 +17,8 @@
           span.glyphicon.glyphicon-plus-sign
           |  Create Notebook
         ul
-          li(ng-repeat="notebook in ctrl.notebooks") {{ notebook.name }}
+          li(ng-repeat="notebook in ctrl.notebooks")
+            a(ng-href="#/notebooks/{{notebook.id}}") {{ notebook.name }}
   .col-md-9
     .row
       .col-md-12

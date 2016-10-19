@@ -19,6 +19,7 @@ class NotebooksController < ApplicationController
 
   def create
     @notebook = Notebook.new(notebook_params)
+    @notebook.user_id = current_user.id
 
     if @notebook.save
       redirect_to @notebook, notice: 'Notebook was successfully created.'
@@ -29,7 +30,7 @@ class NotebooksController < ApplicationController
 
   def update
     if @notebook.update(notebook_params)
-      redirect_to @notebook, notice: 'Notebook was successfully updated.'
+      render :show
     else
       render :edit
     end
@@ -37,7 +38,7 @@ class NotebooksController < ApplicationController
 
   def destroy
     @notebook.destroy
-    redirect_to notebooks_url, notice: 'Notebook was successfully destroyed.'
+    head :no_content
   end
 
   private
