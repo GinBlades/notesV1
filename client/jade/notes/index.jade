@@ -1,0 +1,4 @@
+h1 All your notes.
+ul
+  li(ng-repeat="note in ctrl.notes")
+    a(ng-href="#/notes/{{note.id}}") {{ note.name }}

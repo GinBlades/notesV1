@@ -8,6 +8,11 @@ angular.module("notes", ["ngRoute", "templates"])
                 controller: "HomeCtrl",
                 controllerAs: "ctrl"
             })
+            .when("/notes", {
+                templateUrl: "notes/index.html",
+                controller: "NoteIndex",
+                controllerAs: "ctrl"
+            })
             .when("/notes/new", {
                 templateUrl: "notes/new.html",
                 controller: "NewNote",
@@ -16,6 +21,11 @@ angular.module("notes", ["ngRoute", "templates"])
             .when("/notes/:id", {
                 templateUrl: "notes/show.html",
                 controller: "ShowNote",
+                controllerAs: "ctrl"
+            })
+            .when("/notes/:id/edit", {
+                templateUrl: "notes/edit.html",
+                controller: "NoteEdit",
                 controllerAs: "ctrl"
             })
             .when("/notebooks", {

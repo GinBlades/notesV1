@@ -1,0 +1,8 @@
+form(ng-submit="ctrl.updateNote()")
+  .form-group
+    label(for="name") Name
+    input.form-control(type="text" ng-model="ctrl.note.name")
+  .form-group
+    label(for="body") Body
+    textarea.form-control(ng-model="ctrl.note.body")
+  input.btn.btn-success(type="submit", value="Save")
